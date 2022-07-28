@@ -1,0 +1,21 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: my-web-deployment
+  labels:
+    app : my-k8s-application
+spec:
+  selector:
+    matchLabels:
+      project: super
+  template:
+    metadata:
+      labels:
+        project: super
+    spec:
+      containers:
+        - name : super-web
+          image: kirillqq20/linux_php_apache:latest
+          ports:
+            - containerPort: 80
+
